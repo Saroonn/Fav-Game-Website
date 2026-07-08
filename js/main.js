@@ -66,46 +66,9 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(runLoader, 400);
 
   /* ---------------------------------------------------------------------
-     2. CUSTOM CURSOR
+     2. (custom cursor removed — using default OS/browser cursor)
   --------------------------------------------------------------------- */
-  const cursorDot = document.getElementById('cursorDot');
-  const cursorRing = document.getElementById('cursorRing');
   const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
-
-  if (!isTouchDevice) {
-    let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
-
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
-    });
-
-    function animateRing() {
-      ringX += (mouseX - ringX) * 0.18;
-      ringY += (mouseY - ringY) * 0.18;
-      cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%,-50%)`;
-      requestAnimationFrame(animateRing);
-    }
-    animateRing();
-
-    const hoverTargets = 'a, button, .gallery-item, .about-card, .char-card, input, [data-sound]';
-    document.addEventListener('mouseover', (e) => {
-      if (e.target.closest(hoverTargets)) {
-        cursorRing.classList.add('hover');
-        cursorDot.classList.add('hover');
-      }
-    });
-    document.addEventListener('mouseout', (e) => {
-      if (e.target.closest(hoverTargets)) {
-        cursorRing.classList.remove('hover');
-        cursorDot.classList.remove('hover');
-      }
-    });
-
-    document.addEventListener('mousedown', () => cursorRing.style.transform += ' scale(0.85)');
-  }
 
   /* ---------------------------------------------------------------------
      3. NAVBAR — solid on scroll + active section highlight + mobile menu
