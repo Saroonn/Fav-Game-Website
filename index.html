@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minecraft Java Edition — Fan Showcase</title>
+<meta name="description" content="An unofficial fan-made showcase celebrating the world of Minecraft Java Edition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= CUSTOM CURSOR ================= -->
+<div class="cursor-dot" id="cursorDot">
+  <span class="ch-bar ch-top"></span>
+  <span class="ch-bar ch-bottom"></span>
+  <span class="ch-bar ch-left"></span>
+  <span class="ch-bar ch-right"></span>
+</div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ================= LOADING SCREEN ================= -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-block">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <p class="loader-title">MINECRAFT<span>JAVA EDITION</span></p>
+    <div class="loader-bar-track">
+      <div class="loader-bar-fill" id="loaderFill"></div>
+    </div>
+    <p class="loader-status" id="loaderStatus">Loading terrain...</p>
+  </div>
+</div>
+
+<!-- ================= AMBIENT AUDIO ================= -->
+<audio id="ambientAudio" loop preload="none">
+  <source src="https://cdn.freesound.org/previews/442/442718_4284968-lq.mp3" type="audio/mpeg">
+</audio>
+<button class="sound-toggle" id="soundToggle" aria-label="Toggle ambient sound">
+  <svg class="icon-sound-on" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05A4.5 4.5 0 0 0 16.5 12zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+  <svg class="icon-sound-off" viewBox="0 0 24 24" width="20" height="20" style="display:none"><path fill="currentColor" d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.99 8.99 0 0 0 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4l-1.88 1.88L12 7.76V4z"/></svg>
+</button>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">
+      <span class="logo-block"></span>
+      <span class="logo-text">MINECRAFT<span class="logo-sub">JAVA EDITION</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+      <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+      <li><a href="#story" class="nav-link" data-section="story">Story</a></li>
+      <li><a href="#characters" class="nav-link" data-section="characters">Characters</a></li>
+      <li><a href="#screenshots" class="nav-link" data-section="screenshots">Screenshots</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="home">
+  <div class="hero-bg photo-slot" id="heroBg" data-slot="hero-bg.jpg">
+    <img class="hero-photo" src="images/hero-bg.jpg" alt="">
+    <div class="hero-particles" id="heroParticles"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-vignette"></div>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal-up">UNOFFICIAL FAN SHOWCASE</p>
+    <h1 class="hero-title reveal-up">
+      <span class="hero-title-line">MINECRAFT</span>
+      <span class="hero-title-line accent">JAVA EDITION</span>
+    </h1>
+    <p class="hero-subtitle reveal-up">The Ultimate Sandbox Adventure</p>
+    <div class="hero-buttons reveal-up">
+      <a href="#story" class="btn btn-primary" data-sound>
+        <span>Explore World</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#screenshots" class="btn btn-secondary" data-sound>
+        <span>View Screenshots</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span class="scroll-mouse"></span>
+    <span class="scroll-text">SCROLL</span>
+  </div>
+</header>
+
+<main>
+  <!-- ================= ABOUT ================= -->
+  <section class="about" id="about">
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <p class="section-eyebrow">01 — WHAT IS MINECRAFT</p>
+        <h2 class="section-title">A World Built From <span class="accent">Blocks</span> and Imagination</h2>
+        <p class="section-desc">Minecraft is a sandbox game with no fixed goals to accomplish, granting players a large amount of freedom in choosing how to play. Every world is procedurally generated, endless, and entirely yours to shape.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card reveal-up" style="--delay:0">
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5z" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v20M3 7l9 5 9-5" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>Sandbox Gameplay</h3>
+          <p>Break, place, and reshape a world made entirely of blocks. Every mountain, cave, and forest is yours to explore and transform without limits.</p>
+        </div>
+
+        <div class="about-card reveal-up" style="--delay:1">
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 21s-7-4.5-9.5-9C1 8 3 4 7 4c2 0 4 1.2 5 3 1-1.8 3-3 5-3 4 0 6 4 4.5 8-2.5 4.5-9.5 9-9.5 9z" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>Survival Mode</h3>
+          <p>Gather resources, craft tools, build shelter, and fend off the dangers of the night. Hunger, mobs, and the elements test every choice you make.</p>
+        </div>
+
+        <div class="about-card reveal-up" style="--delay:2">
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M3 12l4-8 4 5 3-4 7 11H3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Creative Mode</h3>
+          <p>Unlimited resources, free flight, and total creative freedom. Build monuments, cities, and machines limited only by your imagination.</p>
+        </div>
+
+        <div class="about-card reveal-up" style="--delay:3">
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M2 20c0-3 2.5-5 6-5s6 2 6 5M12 20c0-3 2.5-5 6-5s4 2 4 5" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>Multiplayer Servers</h3>
+          <p>Join friends or thousands of strangers across community servers. Build together, compete, trade, and create shared histories in persistent worlds.</p>
+        </div>
+
+        <div class="about-card reveal-up" style="--delay:4">
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>Redstone Engineering</h3>
+          <p>A hidden layer of circuitry and logic hums beneath the surface. Build doors, elevators, computers, and contraptions from raw redstone dust.</p>
+        </div>
+
+        <div class="about-card reveal-up" style="--delay:5">
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 3l2.5 5.5L20 10l-4.5 3.8L17 20l-5-3-5 3 1.5-6.2L4 10l5.5-1.5L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Endless Possibilities</h3>
+          <p>No two worlds are the same. With infinite terrain generation and a thriving modding community, the experience never truly ends.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STORY ================= -->
+  <section class="story" id="story">
+    <div class="story-bg-glow"></div>
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <p class="section-eyebrow">02 — THE LEGEND</p>
+        <h2 class="section-title">A World of <span class="accent">Myth</span> and Mystery</h2>
+        <p class="section-desc">Beneath the rolling hills lies a story never fully told — one of forgotten villages, burning dimensions, and an ancient dragon waiting at the end of it all.</p>
+      </div>
+
+      <div class="story-timeline">
+        <div class="story-item reveal-left">
+          <div class="story-visual village-visual photo-slot" data-slot="story-village.jpg">
+            <img src="images/story-village.jpg" alt="The Scattered Villages">
+          </div>
+          <div class="story-text">
+            <span class="story-num">I.</span>
+            <h3>The Scattered Villages</h3>
+            <p>Across plains, deserts, and snowy tundras, quiet villages of wandering traders and farmers persist — remnants of a civilization that never explains itself. They offer trade, shelter, and the closest thing this world has to peace.</p>
+          </div>
+        </div>
+
+        <div class="story-item reverse reveal-right">
+          <div class="story-visual nether-visual photo-slot" data-slot="story-nether.jpg">
+            <img src="images/story-nether.jpg" alt="The Nether">
+          </div>
+          <div class="story-text">
+            <span class="story-num">II.</span>
+            <h3>The Nether — A Realm of Fire</h3>
+            <p>Step through a portal of obsidian and flame into a hellscape of netherrack and lava oceans. Here, ghasts wail in the distance and piglins guard bastions of gold, in a dimension that seems to breathe fire itself.</p>
+          </div>
+        </div>
+
+        <div class="story-item reveal-left">
+          <div class="story-visual end-visual photo-slot" data-slot="story-end.jpg">
+            <img src="images/story-end.jpg" alt="The End Dimension">
+          </div>
+          <div class="story-text">
+            <span class="story-num">III.</span>
+            <h3>The End Dimension</h3>
+            <p>Beyond the void, floating islands of pale end-stone drift under a starless sky. This is the final frontier — silent, alien, and ruled by something ancient that has waited here since the world began.</p>
+          </div>
+        </div>
+
+        <div class="story-item reverse reveal-right">
+          <div class="story-visual dragon-visual photo-slot" data-slot="story-dragon.jpg">
+            <img src="images/story-dragon.jpg" alt="The Ender Dragon">
+          </div>
+          <div class="story-text">
+            <span class="story-num">IV.</span>
+            <h3>The Ender Dragon</h3>
+            <p>Coiled atop obsidian pillars, the Ender Dragon is the guardian of the End — a final trial for anyone who dares to reach the heart of the mystery. Defeating her is not an ending, but an invitation to explore further.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CHARACTERS ================= -->
+  <section class="characters" id="characters">
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <p class="section-eyebrow">03 — FACES OF THE WORLD</p>
+        <h2 class="section-title">Iconic <span class="accent">Characters</span></h2>
+        <p class="section-desc">From loyal adventurers to lurking threats, these are the faces that define the Minecraft universe.</p>
+      </div>
+
+      <div class="character-grid">
+
+        <div class="char-card reveal-up" style="--delay:0">
+          <div class="char-glow steve-glow"></div>
+          <div class="char-model steve-model photo-slot" data-slot="char-steve.jpg">
+            <img src="images/char-steve.jpg" alt="Steve">
+          </div>
+          <div class="char-info">
+            <h3>Steve</h3>
+            <p class="char-role">The Iconic Adventurer</p>
+            <p class="char-desc">The default face of every new world. Steve represents every player's first steps into the unknown — brave, resourceful, and always ready to punch a tree.</p>
+          </div>
+        </div>
+
+        <div class="char-card reveal-up" style="--delay:1">
+          <div class="char-glow alex-glow"></div>
+          <div class="char-model alex-model photo-slot" data-slot="char-alex.jpg">
+            <img src="images/char-alex.jpg" alt="Alex">
+          </div>
+          <div class="char-info">
+            <h3>Alex</h3>
+            <p class="char-role">Explorer and Survivor</p>
+            <p class="char-desc">Sharp-eyed and independent, Alex explores the furthest corners of the map. A symbol of self-reliance for players who forge their own path.</p>
+          </div>
+        </div>
+
+        <div class="char-card reveal-up" style="--delay:2">
+          <div class="char-glow villager-glow"></div>
+          <div class="char-model villager-model photo-slot" data-slot="char-villager.jpg">
+            <img src="images/char-villager.jpg" alt="Villager">
+          </div>
+          <div class="char-info">
+            <h3>Villager</h3>
+            <p class="char-role">Peaceful Trader</p>
+            <p class="char-desc">Murmuring in their own tongue, villagers offer trades, professions, and a sense of a living, breathing world beyond the player.</p>
+          </div>
+        </div>
+
+        <div class="char-card reveal-up" style="--delay:3">
+          <div class="char-glow creeper-glow"></div>
+          <div class="char-model creeper-model photo-slot" data-slot="char-creeper.jpg">
+            <img src="images/char-creeper.jpg" alt="Creeper">
+          </div>
+          <div class="char-info">
+            <h3>Creeper</h3>
+            <p class="char-role">Minecraft's Iconic Enemy</p>
+            <p class="char-desc">Silent until it's too late. The Creeper's hiss has become the most feared sound in gaming — a green reminder to always watch your surroundings.</p>
+          </div>
+        </div>
+
+        <div class="char-card reveal-up" style="--delay:4">
+          <div class="char-glow enderman-glow"></div>
+          <div class="char-model enderman-model photo-slot" data-slot="char-enderman.jpg">
+            <img src="images/char-enderman.jpg" alt="Enderman">
+          </div>
+          <div class="char-info">
+            <h3>Enderman</h3>
+            <p class="char-role">Mysterious Dimension Traveler</p>
+            <p class="char-desc">Tall, silent, and unnervingly fast when provoked. Endermen teleport between dimensions, carrying blocks and secrets between worlds.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SCREENSHOTS / GALLERY ================= -->
+  <section class="screenshots" id="screenshots">
+    <div class="section-container">
+      <div class="section-header reveal-up">
+        <p class="section-eyebrow">04 — GALLERY</p>
+        <h2 class="section-title">Worlds Worth <span class="accent">Exploring</span></h2>
+        <p class="section-desc">A curated collection of biomes, builds, and dimensions rendered entirely in CSS — a tribute to the block-built worlds players create every day.</p>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Gallery items injected/enhanced by JS but present in HTML for no-JS fallback -->
+        <figure class="gallery-item tall" data-caption="Natural Terrain - Jungle Forest" data-scene="Jungle-Forest">
+          <div class="scene mountain-cabin photo-slot" data-slot="mountain-cabin.jpg"><img src="images/mountain-cabin.jpg" alt="Mountain Cabin"></div>
+          <figcaption>Jungle Forest</figcaption>
+        </figure>
+        <figure class="gallery-item" data-caption="Mountains — Snowy Peaks" data-scene="mountains">
+          <div class="scene mountains photo-slot" data-slot="mountains.jpg"><img src="images/mountains.jpg" alt="Snowy Peaks"></div>
+          <figcaption>Foresty Hills</figcaption>
+        </figure>
+        <figure class="gallery-item wide" data-caption="Village — Plains Settlement" data-scene="village">
+          <div class="scene village photo-slot" data-slot="village.jpg"><img src="images/village.jpg" alt="Plains Village"></div>
+          <figcaption>Nether Fortress</figcaption>
+        </figure>
+        <figure class="gallery-item" data-caption="The Nether — Lava Wastes" data-scene="nether">
+          <div class="scene nether photo-slot" data-slot="nether.jpg"><img src="images/nether.jpg" alt="Lava Wastes"></div>
+          <figcaption>Bastion Remanants</figcaption>
+        </figure>
+        <figure class="gallery-item tall" data-caption="End Cities — Void Spires" data-scene="endcity">
+          <div class="scene endcity photo-slot" data-slot="endcity.jpg"><img src="images/endcity.jpg" alt="Void Spires"></div>
+          <figcaption>End City</figcaption>
+        </figure>
+        <figure class="gallery-item" data-caption="Redstone — Automated Farm" data-scene="redstone">
+          <div class="scene redstone photo-slot" data-slot="redstone.jpg"><img src="images/redstone.jpg" alt="Redstone Farm"></div>
+          <figcaption>The Warden</figcaption>
+        </figure>
+        <figure class="gallery-item wide" data-caption="Ocean — Coral Reef" data-scene="ocean">
+          <div class="scene ocean photo-slot" data-slot="ocean.jpg"><img src="images/ocean.jpg" alt="Coral Reef"></div>
+          <figcaption>The Wither</figcaption>
+        </figure>
+        <figure class="gallery-item" data-caption="Cave — Deep Dark" data-scene="cave">
+          <div class="scene cave photo-slot" data-slot="cave.jpg"><img src="images/cave.jpg" alt="Deep Dark"></div>
+          <figcaption>Outer End Islands</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous">&#10094;</button>
+  <div class="lightbox-content">
+    <div class="lightbox-scene" id="lightboxScene"></div>
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+  <button class="lightbox-nav next" id="lightboxNext" aria-label="Next">&#10095;</button>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="section-container footer-grid">
+    <div class="footer-brand">
+      <a href="#home" class="nav-logo">
+        <span class="logo-block"></span>
+        <span class="logo-text">MINECRAFT<span class="logo-sub">JAVA EDITION</span></span>
+      </a>
+      <p>An unofficial fan-made tribute site built to celebrate the creativity, adventure, and community behind Minecraft Java Edition. Not affiliated with or endorsed by Mojang Studios or Microsoft.</p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Navigate</h4>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#story">Story</a>
+      <a href="#characters">Characters</a>
+      <a href="#screenshots">Screenshots</a>
+    </div>
+
+    <div class="footer-social">
+      <h4>Community</h4>
+      <div class="social-icons">
+        <a href="https://discord.gg/minecraft?event=1521949961493680248" target="_blank" rel="noopener" aria-label="Discord" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 5.3A17.7 17.7 0 0 0 15.9 4l-.2.4c1.7.5 2.6 1.2 3.5 1.9-1.5-.7-3-1.3-5.2-1.3s-3.7.6-5.2 1.3c.9-.7 2-1.4 3.5-1.9L12.1 4a17.7 17.7 0 0 0-4.4 1.3C5 9.6 4.3 13.8 4.6 17.9a17.9 17.9 0 0 0 5.3 2.6l.7-1.2c-.9-.3-1.8-.8-2.6-1.4l.4-.3c2.6 1.2 5.4 1.2 7.9 0l.4.3c-.8.6-1.7 1.1-2.6 1.4l.7 1.2a17.9 17.9 0 0 0 5.3-2.6c.4-4.7-.8-8.9-3.4-12.6zM9.7 15.4c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8zm4.6 0c-.9 0-1.6-.8-1.6-1.8s.7-1.8 1.6-1.8 1.6.8 1.6 1.8-.7 1.8-1.6 1.8z"/></svg></a>
+        <a href="https://www.youtube.com/minecraft" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23 12s0-3.6-.5-5.3c-.3-1-1.1-1.8-2.1-2.1C18.7 4 12 4 12 4s-6.7 0-8.4.6c-1 .3-1.8 1.1-2.1 2.1C1 8.4 1 12 1 12s0 3.6.5 5.3c.3 1 1.1 1.8 2.1 2.1C5.3 20 12 20 12 20s6.7 0 8.4-.6c1-.3 1.8-1.1 2.1-2.1.5-1.7.5-5.3.5-5.3zM9.8 15.5V8.5l6.2 3.5-6.2 3.5z"/></svg></a>
+        <a href="https://twitter.com/Minecraft" target="_blank" rel="noopener" aria-label="Twitter" class="social-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 5.8c-.7.3-1.5.6-2.3.7.8-.5 1.4-1.3 1.7-2.3-.8.5-1.6.8-2.5 1a4 4 0 0 0-6.8 3.6A11.3 11.3 0 0 1 4.1 4.6a4 4 0 0 0 1.2 5.3c-.6 0-1.3-.2-1.8-.5v.1a4 4 0 0 0 3.2 3.9c-.6.1-1.2.2-1.8.1a4 4 0 0 0 3.7 2.8A8 8 0 0 1 2 18.4a11.3 11.3
+  0 0 0 6.1 1.8c7.3 0 11.3-6 11.3-11.2v-.5c.8-.6 1.4-1.3 1.9-2.2z"/></svg></a>
+      </div>
+    </div>
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
